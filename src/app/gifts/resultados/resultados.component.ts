@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { GiftsService } from '../services/gifts.service';
 
 @Component({
   selector: 'app-resultados',
-  templateUrl: './resultados.component.html'
+  templateUrl: './resultados.component.html',
 })
-export class ResultadosComponent implements OnInit {
+export class ResultadosComponent {
+  constructor(private _GiftService: GiftsService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  get resultados() {
+    return this._GiftService.resultados;
   }
-
 }

@@ -1,3 +1,10 @@
-<p>
-resultados works!
-</p>
+<div class="row">
+  <div class="col">
+    <div class="card" *ngFor="let gift of resultados">
+        <img class="card-img-top" [src]="gift.images.downsized_medium.url"/>
+      <div class="card-body">
+        {{gift.title}}
+      </div>
+    </div>
+  </div>
+</div>
