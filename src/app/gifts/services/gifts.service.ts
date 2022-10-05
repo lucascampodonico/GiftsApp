@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SearchGiftsResponse } from '../interfaces/gifts.interface';
 
 @Injectable()
 export class GiftsService {
@@ -22,7 +23,7 @@ export class GiftsService {
     }
 
     this._http
-      .get(
+      .get<SearchGiftsResponse>(
         'https://api.giphy.com/v1/gifs/search?api_key=' +
           this.apiKey +
           '&q=' +
@@ -30,9 +31,9 @@ export class GiftsService {
           '&limit=10'
       )
       .subscribe({
-        next: (d:any) => {
+        next: (d) => {
           this.resultados = d.data;
-          console.log(d.data)
+          console.log(d);
         },
       });
   }
